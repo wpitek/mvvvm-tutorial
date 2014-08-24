@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MVVM
 {
@@ -23,6 +13,36 @@ namespace MVVM
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void SayHi_Click(object sender, RoutedEventArgs e)
+        {
+            Person person = new Person
+            {
+                FirstName=FirstName.Text,
+                LastName=LastName.Text,
+                Addres=Address.Text
+            };
+            if (!PersonExists(person))
+            {
+                MessageBox.Show(string.Format("Hi {0} {1}!", person.FirstName, person.LastName));
+                SavePerosn(person);
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Hey {0} {1}, you exists in our database!", person.FirstName, person.LastName));
+            }
+        }
+
+        private bool PersonExists(Person person)
+        {
+            //Logic goes here
+            return false;
+        }
+
+        private void SavePerosn(Person person)
+        {
+            //Logic goes here
         }
     }
 }

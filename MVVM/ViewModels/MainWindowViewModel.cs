@@ -1,22 +1,25 @@
-﻿using System;
-using System.ComponentModel;
+﻿using Caliburn.Micro;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
-
-namespace MVVM
+namespace MVVM.ViewModels
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : PropertyChangedBase
     {
         private readonly Person _person;
 
         public string FirstName
         {
-            get { return _person.FirstName; }
+            get
+            {
+                return _person.FirstName;
+            }
             set
             {
                 _person.FirstName = value;
-                OnPropertyChanged("FirstName");
+                NotifyOfPropertyChange("FirstName");
+                NotifyOfPropertyChange(() => CanSayHi);
             }
         }
 
@@ -26,7 +29,8 @@ namespace MVVM
             set
             {
                 _person.LastName = value;
-                OnPropertyChanged("LastName");
+                NotifyOfPropertyChange("LastName");
+                NotifyOfPropertyChange(() => CanSayHi);
             }
         }
 
@@ -36,18 +40,8 @@ namespace MVVM
             set
             {
                 _person.Address = value;
-                OnPropertyChanged("Address");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
+                NotifyOfPropertyChange("Address");
+                NotifyOfPropertyChange(() => CanSayHi);
             }
         }
 
@@ -56,9 +50,7 @@ namespace MVVM
             _person = new Person();
         }
 
-        public ICommand SayHi { get { return new RelayCommand(SayHiExcute, CanSayHiExcute); } }
-
-        private void SayHiExcute()
+        public void SayHi()
         {
             if (!PersonExists(_person))
             {
@@ -66,9 +58,7 @@ namespace MVVM
                 SavePerosn(_person);
             }
             else
-            {
                 MessageBox.Show(string.Format("Hey {0} {1}, you exists in our database!", _person.FirstName, _person.LastName));
-            }
         }
 
         private void SavePerosn(Person _person)
@@ -76,9 +66,9 @@ namespace MVVM
             //Some Database Logic
         }
 
-        private bool CanSayHiExcute()
+        public bool CanSayHi
         {
-            return !PersonExists(_person);
+            get { return !PersonExists(_person); }
         }
 
         private bool PersonExists(Person _person)

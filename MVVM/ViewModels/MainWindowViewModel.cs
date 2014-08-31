@@ -7,48 +7,35 @@ namespace MVVM.ViewModels
 {
     public class MainWindowViewModel : PropertyChangedBase
     {
-        private Person _person;
-        public Person Ctx
+        private Person _customer;
+        public Person SelectedCustomer
         {
-            get { return _person; }
+            get { return _customer; }
             set
             {
-                _person = value;
-                NotifyOfPropertyChange("Ctx");
-                NotifyOfPropertyChange(() => CanSayHi);
+                _customer = value;
+                NotifyOfPropertyChange("SelectedCustomer");
+            }
+        }
+
+        private BindableCollection<Person> _customers;
+        public BindableCollection<Person> Customers
+        {
+            get { return _customers; }
+            set
+            {
+                _customers = value;
+                NotifyOfPropertyChange("Customers");
             }
         }
 
         public MainWindowViewModel()
         {
-            _person = new Person();
-        }
-
-        public void SayHi()
-        {
-            if (!PersonExists(_person))
-            {
-                MessageBox.Show(string.Format("Hi {0} {1}!\nYou address is {2} {3}", _person.FirstName, _person.LastName, _person.Address.PostCode, _person.Address.Town));
-                SavePerosn(_person);
-            }
-            else
-                MessageBox.Show(string.Format("Hey {0} {1}, you exists in our database!", _person.FirstName, _person.LastName));
-        }
-
-        private void SavePerosn(Person _person)
-        {
-            //Some Database Logic
-        }
-
-        public bool CanSayHi
-        {
-            get { return !PersonExists(_person); }
-        }
-
-        private bool PersonExists(Person person)
-        {
-            //Some logic
-            return false;
+            _customers = new BindableCollection<Person>();
+            Address a1 = new Address { Town = "Example1", PostCode = "0xFF" };
+            Address a2 = new Address { Town = "Example2", PostCode = "0xAA" };
+            _customers.Add(new Person { FirstName = "A", LastName = "A", Address = a1 });
+            _customers.Add(new Person { FirstName = "B", LastName = "B", Address = a2 });
         }
 
     }

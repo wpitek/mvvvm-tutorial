@@ -7,40 +7,14 @@ namespace MVVM.ViewModels
 {
     public class MainWindowViewModel : PropertyChangedBase
     {
-        private readonly Person _person;
-
-        public string FirstName
+        private Person _person;
+        public Person Ctx
         {
-            get
-            {
-                return _person.FirstName;
-            }
+            get { return _person; }
             set
             {
-                _person.FirstName = value;
-                NotifyOfPropertyChange("FirstName");
-                NotifyOfPropertyChange(() => CanSayHi);
-            }
-        }
-
-        public string LastName
-        {
-            get { return _person.LastName; }
-            set
-            {
-                _person.LastName = value;
-                NotifyOfPropertyChange("LastName");
-                NotifyOfPropertyChange(() => CanSayHi);
-            }
-        }
-
-        public string Address
-        {
-            get { return _person.Address; }
-            set
-            {
-                _person.Address = value;
-                NotifyOfPropertyChange("Address");
+                _person = value;
+                NotifyOfPropertyChange("Ctx");
                 NotifyOfPropertyChange(() => CanSayHi);
             }
         }
@@ -71,7 +45,7 @@ namespace MVVM.ViewModels
             get { return !PersonExists(_person); }
         }
 
-        private bool PersonExists(Person _person)
+        private bool PersonExists(Person person)
         {
             //Some logic
             return false;

@@ -10,7 +10,12 @@ namespace MVVM
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Address { get; set; }
+        public Address Address { get; set; }
+
+        public Person()
+        {
+            Address = new Address();
+        }
     }
 }
 

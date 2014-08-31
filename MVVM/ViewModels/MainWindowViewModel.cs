@@ -28,7 +28,7 @@ namespace MVVM.ViewModels
         {
             if (!PersonExists(_person))
             {
-                MessageBox.Show(string.Format("Hi {0} {1}!", _person.FirstName, _person.LastName));
+                MessageBox.Show(string.Format("Hi {0} {1}!\nYou address is {2} {3}", _person.FirstName, _person.LastName, _person.Address.PostCode, _person.Address.Town));
                 SavePerosn(_person);
             }
             else

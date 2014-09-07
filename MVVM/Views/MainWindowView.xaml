@@ -1,7 +1,15 @@
 ﻿<Window x:Class="MVVM.Views.MainWindowView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        SizeToContent="WidthAndHeight" WindowStyle="ToolWindow"  >
+        SizeToContent="WidthAndHeight" WindowStyle="ToolWindow"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+        mc:Ignorable="d"   
+        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"  
+        xmlns:vm="clr-namespace:MVVM.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel, IsDesignTimeCreatable=True}" 
+        cal:Bind.AtDesignTime="True"
+        >
     <StackPanel Orientation="Horizontal">
         <Grid>
             <Grid.ColumnDefinitions>

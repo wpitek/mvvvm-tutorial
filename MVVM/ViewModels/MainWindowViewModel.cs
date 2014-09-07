@@ -31,11 +31,22 @@ namespace MVVM.ViewModels
 
         public MainWindowViewModel()
         {
+            if (Execute.InDesignMode)
+            {
+                LoadFakeData();
+            }
+            else
+                LoadFakeData();
+        }
+
+        private void LoadFakeData()
+        {
             _customers = new BindableCollection<Person>();
             Address a1 = new Address { Town = "Example1", PostCode = "0xFF" };
             Address a2 = new Address { Town = "Example2", PostCode = "0xAA" };
             _customers.Add(new Person { FirstName = "A", LastName = "A", Address = a1 });
             _customers.Add(new Person { FirstName = "B", LastName = "B", Address = a2 });
+            SelectedCustomer = Customers[0];
         }
 
     }

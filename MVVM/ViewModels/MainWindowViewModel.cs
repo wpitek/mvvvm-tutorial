@@ -7,6 +7,8 @@ namespace MVVM.ViewModels
 {
     public class MainWindowViewModel : PropertyChangedBase
     {
+        private readonly WindowManager _windowManager;
+
         private Person _customer;
         public Person SelectedCustomer
         {
@@ -36,7 +38,10 @@ namespace MVVM.ViewModels
                 LoadFakeData();
             }
             else
+            {
+                _windowManager = new WindowManager();
                 LoadFakeData();
+            }
         }
 
         private void LoadFakeData()
@@ -49,5 +54,10 @@ namespace MVVM.ViewModels
             SelectedCustomer = Customers[0];
         }
 
+
+        public void About()
+        {
+            _windowManager.ShowDialog(new AboutViewModel());
+        }
     }
 }

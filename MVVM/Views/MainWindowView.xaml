@@ -10,6 +10,7 @@
         d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel, IsDesignTimeCreatable=True}" 
         cal:Bind.AtDesignTime="True"
         >
+    <StackPanel >
     <StackPanel Orientation="Horizontal">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -41,5 +42,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+    </StackPanel>
+        <Button x:Name="About" Content="About Window" />
     </StackPanel>
 </Window>

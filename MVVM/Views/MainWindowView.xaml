@@ -44,5 +44,6 @@
         </ListBox>
     </StackPanel>
         <Button x:Name="About" Content="About Window" />
+        <Button x:Name="MultiView" Content="Mult iView" />
     </StackPanel>
 </Window>

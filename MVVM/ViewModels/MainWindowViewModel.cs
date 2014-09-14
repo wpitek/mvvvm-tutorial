@@ -59,5 +59,10 @@ namespace MVVM.ViewModels
             _windowManager.ShowDialog(new AboutViewModel());
         }
 
+
+        public void MultiView()
+        {
+            _windowManager.ShowDialog(new MultiViewModel());
+        }
     }
 }

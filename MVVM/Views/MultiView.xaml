@@ -1,0 +1,12 @@
+﻿<Window x:Class="MVVM.Views.MultiView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MultiView" Height="300" Width="300">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="SampleA" Content="Sample A" />
+            <Button x:Name="SampleB" Content="Sample B" />
+        </StackPanel>
+        <ContentControl x:Name="ActiveItem" />
+    </StackPanel>
+</Window>

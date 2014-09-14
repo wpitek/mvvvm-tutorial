@@ -66,6 +66,17 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\SampleAViewModel.cs" />
+    <Compile Include="ViewModels\SampleBViewModel.cs" />
+    <Compile Include="Views\MultiView.xaml.cs">
+      <DependentUpon>MultiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SampleAView.xaml.cs">
+      <DependentUpon>SampleAView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SampleBView.xaml.cs">
+      <DependentUpon>SampleBView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AboutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +89,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\MultiViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
@@ -85,6 +97,18 @@
       <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MultiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SampleAView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SampleBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Person.cs" />

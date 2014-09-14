@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace MVVM.ViewModels
 {
-    public class MainWindowViewModel : PropertyChangedBase
+    public class MainWindowViewModel : Screen 
     {
         private readonly WindowManager _windowManager;
 
@@ -54,10 +54,10 @@ namespace MVVM.ViewModels
             SelectedCustomer = Customers[0];
         }
 
-
         public void About()
         {
             _windowManager.ShowDialog(new AboutViewModel());
         }
+
     }
 }

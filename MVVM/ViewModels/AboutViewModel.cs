@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVVM.ViewModels
 {
-    public class AboutViewModel : PropertyChangedBase
+    public class AboutViewModel : Screen 
     {
         
     }

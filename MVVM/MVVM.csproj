@@ -65,11 +65,23 @@
     <Compile Include="Address.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\EventAggregatorViewModel.cs" />
+    <Compile Include="ViewModels\LeftViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\RightViewModel.cs" />
     <Compile Include="ViewModels\SampleAViewModel.cs" />
     <Compile Include="ViewModels\SampleBViewModel.cs" />
+    <Compile Include="Views\EventAggregatorView.xaml.cs">
+      <DependentUpon>EventAggregatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeftView.xaml.cs">
+      <DependentUpon>LeftView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MultiView.xaml.cs">
       <DependentUpon>MultiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RightView.xaml.cs">
+      <DependentUpon>RightView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SampleAView.xaml.cs">
       <DependentUpon>SampleAView.xaml</DependentUpon>
@@ -78,6 +90,14 @@
       <DependentUpon>SampleBView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EventAggregatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LeftView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +118,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MultiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RightView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
